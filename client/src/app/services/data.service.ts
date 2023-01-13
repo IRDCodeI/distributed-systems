@@ -11,7 +11,7 @@ export class DataService {
 
   dataUser: Users;
 
-  readonly URL_API = 'http://172.18.0.3:3000/api/lab';
+  readonly URL_API = 'http://172.18.0.2:3000/api/lab';
 
   constructor(private http: HttpClient, private router: Router) {
     this.dataUser = new Users();

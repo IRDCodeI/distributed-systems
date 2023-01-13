@@ -1,0 +1,11 @@
+FROM node
+
+WORKDIR /home/node
+
+COPY . .
+
+RUN npm install -f
+
+RUN npm install -g @angular/cli@14.0.0"
+
+CMD ["ng","serve","--host=0.0.0.0"]
