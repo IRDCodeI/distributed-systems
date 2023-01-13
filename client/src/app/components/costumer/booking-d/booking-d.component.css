@@ -1,0 +1,22 @@
+.titulo1{
+  margin-top: auto;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.formulario{
+  margin-left: 180px;
+  width: 1000px;
+}
+
+.carousel{
+  width: 1100px;
+  margin-left: 50px;
+}
+
+.titulo2{
+  margin-top: auto;
+  font-weight: 600;
+  font-size: 30px;
+  margin-left: 50px;
+}
