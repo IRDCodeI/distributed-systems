@@ -7,7 +7,7 @@ const {mongoose} = require('./database');
 const morgan = require('morgan')
 
 //?Configuraciones
-app.set('puerto', process.env.PORT|| 3000);
+app.set('puerto', process.env.PORT || 3000);
 app.use(morgan('dev'))
 app.use(express.json());
 app.use(cors());

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router';
 //Modelo
 import { Users } from '../models/user/users';
+import { environment } from 'src/environments/environment.deployment';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class DataService {
 
   dataUser: Users;
 
-  readonly URL_API = 'http://192.168.100.20:3000/api/lab';
+  readonly URL_API = `http://192.168.10.20:3000/api/lab`;
 
   constructor(private http: HttpClient, private router: Router) {
     this.dataUser = new Users();

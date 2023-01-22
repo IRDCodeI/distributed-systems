@@ -1,6 +1,15 @@
-FROM node:16
+FROM node:latest
 
-WORKDIR /app
+WORKDIR /home/node
 
 COPY package.json ./
+
+RUN npm install -f
+
+COPY . .
+
+ARG port
+
+EXPOSE $port
+
 

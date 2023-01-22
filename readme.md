@@ -25,7 +25,7 @@ docker pull nginx
 **Creacion de Red de Comunicacion de Contenedores**
 
 ```
-docker network create --driver=bridge --subnet=192.168.100.0/24 --gateway=192.168.100.254 redg1
+docker network create --subnet=192.168.10.0/24 --gateway=192.168.10.254 redg1
 ```
 
 **Ejecucion de Imagenes con asignacion de red y puertos**

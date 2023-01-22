@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Reservations } from '../models/reservation/reservations';
+import { environment } from 'src/environments/environment.deployment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class ReservationService {
   reservation: Reservations;
   reservations: Reservations[] = [];
 
-  readonly URL_API = 'http://192.168.100.20:3000/api/lab/reservation';
+  readonly URL_API = `http://192.168.10.20:3000/api/lab/reservation`;
 
   constructor(private http:HttpClient) {
     this.reservation = new Reservations();
