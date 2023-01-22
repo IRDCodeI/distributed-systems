@@ -10,7 +10,7 @@ export class ReservationService {
   reservation: Reservations;
   reservations: Reservations[] = [];
 
-  readonly URL_API = 'http://172.18.0.3:3000/api/lab/reservation';
+  readonly URL_API = 'http://192.168.100.20:3000/api/lab/reservation';
 
   constructor(private http:HttpClient) {
     this.reservation = new Reservations();

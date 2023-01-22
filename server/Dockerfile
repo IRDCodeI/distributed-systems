@@ -1,9 +1,6 @@
-FROM node:latest
+FROM node:16
 
-WORKDIR /home/node
+WORKDIR /app
 
-COPY package*.json ./
+COPY package.json ./
 
-RUN npm install -f
-
-CMD ["npm","run","dev"]

@@ -1,6 +1,6 @@
 //*Exportacion para conexion a MongoDB
 const mongoose = require('mongoose'); 
-const URLMongoDB = 'mongodb://172.18.0.4:27017/LabFisica'; 
+const URLMongoDB = 'mongodb://192.168.100.10:27017/LabFisica'; 
 
 //?Metodo de Conexion
 mongoose.connect(URLMongoDB, {

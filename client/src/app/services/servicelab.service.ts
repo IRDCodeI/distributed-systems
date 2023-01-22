@@ -10,7 +10,7 @@ export class ServicelabService {
   service: Service;
   services: Service[] = [];
 
-  readonly URL_API = 'http://172.18.0.3:3000/api/lab/service';
+  readonly URL_API = 'http://192.168.100.20:3000/api/lab/service';
 
   constructor(private http: HttpClient) {
     this.service = new Service();
