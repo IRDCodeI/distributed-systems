@@ -1,7 +1,26 @@
 version: '1.0'
+
 services:
-  db:
+  database:
+    container_name: MongoDB
     image: mongo
+    tty: true
+    networks:
+      myNetwork:
+        ipv4_address: 192.168.10.10
   backend:
-  frontend:
-  nginx:
+    container_name: NodeBack
+    image: node
+    networks:
+      myNetwork:
+        ipv4_address: 192.168.10.20
+
+networks:
+  myNetwork:
+    name: myNet
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: "192.168.10.0/24"
+        gateway: "192.168.10.1"

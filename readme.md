@@ -14,7 +14,7 @@ Proyecto de una aplicacion basado en una arquitectura de sistemas distribuidos
 ### Configuracion de Proyecto
 ---
 
-**Descarga de Imagenes de DockerHub**
+## Descarga de Imagenes de DockerHub
 
 ```
 docker pull node
@@ -22,39 +22,46 @@ docker pull mongo
 docker pull nginx
 ```
 
-**Creacion de Red de Comunicacion de Contenedores**
+## Creacion de Red de Comunicacion de Contenedores
 
 ```
-docker network create --subnet=192.168.10.0/24 --gateway=192.168.10.254 redg1
+docker network create --subnet=192.168.10.0/24 --gateway=192.168.10.1 redg1
 ```
 
-**Ejecucion de Imagenes con asignacion de red y puertos**
+## Construiccion y Ejecucion de Imagenes (DockerFile)
+---
 
 *MongoDB*
 
 ```
-docker run -itd --name MongoDB --network redg1 --ip 192.168.100.10 mongo
+docker run -itd --name MongoDB --network redg1 --ip 192.168.10.10 mongo
 ```
 
 *Node Backend Node-Express* 
 
 ```
-docker run -itd --name NodeBack --network redg1 --ip 192.168.100.20 -p 3000:3000 -v $(pwd)/server:/home/node node
+docker build -t backapp --build-arg port=3000 .
+docker run -itd --name NodeBack --network redg1 --ip  192.168.10.20 -e PORT=3000 -e IP_DB=192.168.10.10 backapp npm start
 ```
 
 *Node Frontend Node-Angular*
 
 ```
-docker run -itd --name NodeFront --network redg1 --ip 192.168.100.30 -p 4200:4200 $(pwd)/client/:/home/node node
+docker build -t frontapp --build-arge port=4200
+docker run -it -d --name FrontApp --network redg1 --ip 192.168.10.30 -e IP=192.168.10.30 -e PORT=4200 frontapp npm start
 ```
 
 *Load Balancer Nginx*
 
 ```
-docker run -itd --name NginxLB --network redg1 --ip 192.168.100.40 -p 80:80 nginx
+docker build -t nginxlb .
+docker run -itd --name NginxLB --network redg1 --ip 192.168.100.40 -p 80:80 nginxlb
 ```
 
-**Configuracion Backend API**
+## Docker Compose
+---
+
+<!-- **Configuracion Backend API**
 ---
 
 Modo de interaccion shell del contenedor
@@ -69,9 +76,9 @@ Ejecucion de aplicacion Node en el contenedor
 cd /home/node
 npm install -f
 npm run dev
-```
+``` -->
 
-**Configuracion Frontend USER**
+<!-- **Configuracion Frontend USER**
 ---
 
 Modo de interaccion shell del contenedor
@@ -136,5 +143,5 @@ http {
 ```
 ```
 docker restart NginxLB
-```
+``` -->
 
