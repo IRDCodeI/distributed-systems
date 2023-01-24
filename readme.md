@@ -39,18 +39,40 @@ docker run -itd --name MongoDB --network redg1 --ip 192.168.10.10 mongo
 
 *Node Backend Node-Express* 
 
+Imagenes Dockerfile:
+
 ```
-docker build -t backapp --build-arg port=3000 .
-docker run -itd --name NodeBack --network redg1 --ip  192.168.10.20 -e PORT=3000 -e IP_DB=192.168.10.10 backapp npm start
+docker build -t backapp_1 --build-arg port=3010 .
+docker build -t backapp_2 --build-arg port=3020 .
+docker build -t backapp_3 --build-arg port=3030 .
+```
+
+Ejecucion Imagenes:
+```
+docker run -itd --name NodeBack_1 --network redg1 --ip 192.168.10.20 -e PORT=3010 -e IP_DB=192.168.10.10 backapp_1 npm start
+
+docker run -itd --name NodeBack_2 --network redg1 --ip 192.168.10.21 -e PORT=3020 -e IP_DB=192.168.10.10 backapp_2 npm start
+
+docker run -itd --name NodeBack_3 --network redg1 --ip 192.168.10.22 -e PORT=3030 -e IP_DB=192.168.10.10 backapp_3 npm start
 ```
 
 *Node Frontend Node-Angular*
 
+Creacion de Imagenes:
 ```
-docker build -t frontapp --build-arge port=4200
-docker run -it -d --name FrontApp --network redg1 --ip 192.168.10.30 -e IP=192.168.10.30 -e PORT=4200 frontapp npm start
+docker build -t frontapp_1 --build-arge port=4010
+docker build -t frontapp_2 --build-arge port=4020
+docker build -t frontapp_3 --build-arge port=4030
 ```
 
+Ejecucion de Imagenes:
+```
+docker run -it -d --name FrontApp_1 --network redg1 --ip 192.168.10.30 -e IP=192.168.10.30 -e PORT=4010 frontapp_1 npm start
+
+docker run -it -d --name FrontApp_2 --network redg1 --ip 192.168.10.31 -e IP=192.168.10.31 -e PORT=4020 frontapp_2 npm start
+
+docker run -it -d --name FrontApp_3 --network redg1 --ip 192.168.10.32 -e IP=192.168.10.32 -e PORT=4030 frontapp_3 npm start
+```
 *Load Balancer Nginx*
 
 ```
