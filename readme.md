@@ -73,6 +73,18 @@ docker run -it -d --name FrontApp_2 --network redg1 --ip 192.168.10.31 -e IP=192
 
 docker run -it -d --name FrontApp_3 --network redg1 --ip 192.168.10.32 -e IP=192.168.10.32 -e PORT=4030 frontapp_3 npm start
 ```
+
+Editar codigo `src/app/service/data.service.ts` con las direccion IP y puertos asignados a las diferentes API's ejem:
+```
+docker exec -it FrontApp_1 bash
+```
+
+```
+readonly URL_API = `http://192.168.10.20:3010/api/lab`;
+```
+
+NOTA: Se debe editar el codigo de cada contenedor y conectar a la API que guste, pero por organizacion FrontApp_1 vincular con BackApp_1 "192.168.10.50:3010"
+
 *Load Balancer Nginx*
 
 ```
