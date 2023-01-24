@@ -86,7 +86,7 @@ readonly URL_API = `http://192.168.10.20:3010/api/lab`;
 NOTA: Se debe editar el codigo de cada contenedor y conectar a la API que guste, pero por organizacion 
 - FrontApp_1 vincular con BackApp_1  "192.168.10.20:3010"
 - FrontApp_2 vincular con BackApp_2  "192.168.10.21:3020"
-- FrontApp_1 vincular con BackApp_1  "192.168.10.22:3030"
+- FrontApp_3 vincular con BackApp_3  "192.168.10.22:3030"
 
 *Load Balancer Nginx*
 
