@@ -89,7 +89,7 @@ NOTA: Se debe editar el codigo de cada contenedor y conectar a la API que guste,
 
 ```
 docker build -t nginxlb .
-docker run -itd --name NginxLB --network redg1 --ip 192.168.100.40 -p 80:80 nginxlb
+docker run -itd --name NginxLB --network redg1 --ip 192.168.10.40 -p 80:80 nginxlb
 ```
 
 ## Docker Compose
