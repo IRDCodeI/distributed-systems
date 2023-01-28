@@ -60,9 +60,9 @@ docker run -itd --name NodeBack_3 --network redg1 --ip 192.168.10.22 -e PORT=303
 
 Creacion de Imagenes:
 ```
-docker build -t frontapp_1 --build-arge port=4010
-docker build -t frontapp_2 --build-arge port=4020
-docker build -t frontapp_3 --build-arge port=4030
+docker build -t frontapp_1 --build-arg port=4010 .
+docker build -t frontapp_2 --build-arg port=4020 .
+docker build -t frontapp_3 --build-arg port=4030 .
 ```
 
 Ejecucion de Imagenes:
